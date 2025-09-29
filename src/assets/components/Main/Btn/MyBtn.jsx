@@ -1,22 +1,15 @@
-import DetailsBtn from "./DetailsBtn";
-
 const MyBtn = (props) => {
-    const { title, info, isSelected, onToggle } = props;
+    const { title, onToggle } = props;
 
     return (
-
-        <div>
-            <button
+        <>
+            <button type="button" className="btn btn-primary"
                 onClick={onToggle}
             >
                 {title}
             </button>
-            <DetailsBtn
-                info={lang.description}
-                isSelected={btnActive === lang.id}
-                onToggle={() => setBtnActive(btnActive === lang.id ? null : lang.id)}
-            />
-        </div>
+
+        </>
     )
 }
 
