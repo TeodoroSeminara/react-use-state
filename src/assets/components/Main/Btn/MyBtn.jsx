@@ -1,9 +1,11 @@
+
 const MyBtn = (props) => {
-    const { title, onToggle } = props;
+    const { title, onToggle, isSelected } = props;
 
     return (
         <>
-            <button type="button" className="btn btn-primary"
+            <button type="button"
+                className={`btn ${isSelected ? 'btn-warning' : 'btn-primary'}`}
                 onClick={onToggle}
             >
                 {title}

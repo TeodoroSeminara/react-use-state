@@ -2,7 +2,7 @@ const DetailsBtn = (props) => {
     const { info, isSelected } = props;
     return (
         <>
-            <p className="container">
+            <p className="container border ">
                 {isSelected && info}
             </p>
         </>

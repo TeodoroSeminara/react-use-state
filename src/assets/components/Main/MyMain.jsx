@@ -7,23 +7,33 @@ export default function MyMain() {
     const [btnActive, setBtnActive] = useState(null);
 
     return (
-        <div className="d-flex">
-            {languages.map((lang) => (
-                <>
+        <div className="d-flex flex-column align-items-start ms-3 mt-5">
+
+            <div className="d-flex gap-2 mb-3">
+                {languages.map((lang) => (
                     <MyBtn
+
                         key={lang.id}
                         title={lang.title}
                         isSelected={btnActive === lang.id}
-                        onToggle={() => setBtnActive(btnActive === lang.id ? null : lang.id)}
+                        onToggle={() =>
+                            setBtnActive(btnActive === lang.id ? null : lang.id)
+                        }
+
                     />
-                    <DetailsBtn
-                        info={lang.description}
-                        isSelected={btnActive === lang.id}
-                        onToggle={() => setBtnActive(btnActive === lang.id ? 0 : lang.id)}
-                    />
-                </>
-            ))
-            }
-        </div >
-    )
+                ))}
+            </div>
+
+            <div className="mt-3">
+                {btnActive === null ? (
+                    <p>Nessun argomento selezionato</p>
+                ) : <DetailsBtn
+                    info={languages[btnActive - 1].description}
+                    isSelected={true}
+                />
+                }
+            </div>
+        </div>
+    );
+
 }
